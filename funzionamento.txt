@@ -1,5 +1,3 @@
-# ass-03
-
 Water Level Monitoring subsystem (ESP32)
     - legge il livello con un sonar continuamente e invia con una frequenza F al PC via mqtt
     - la frequenza è decisa dal servizio sul pc
