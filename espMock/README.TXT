@@ -1,0 +1,1 @@
+mock dell'ESP32 per effettuare testing del sistema isolando il sistema di sampling dell'acqua

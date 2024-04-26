@@ -1,0 +1,12 @@
+La comunicazione avviene in due versi:
+    - Da controller verso esp inviando la frequenze
+    - Da esp a controller inviando il livello
+
+Ogni volta che si unisce al topic l'esp invia il livello
+Ogni volta che si unisce al topic il controller invia al topic la frquenza
+
+Invio frequenza:
+    {"frequency":0.4} // Frequenza in herz
+
+Invio livello:
+    {"level" : 0.5} // Livello

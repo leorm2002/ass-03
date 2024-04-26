@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water monitoring</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <h1>Hello</h1>
+    <div id="result"></div>
+    <canvas id="myChart" width="400" height="200"></canvas>
+
+    <script>
+        let values = [];
+
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Values',
+                    data: values,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        setInterval(() => {
+            fetch('/getState')
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    values = data.levels
+                    chart.update();
+                })
+                .catch(error => console.error('Error:', error));
+        }, 1000);
+    </script>
+</body>
+
+</html>

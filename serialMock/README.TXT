@@ -1,0 +1,1 @@
+mock dell'arduino e delle comunicazioni via seriale

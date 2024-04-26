@@ -1,17 +1,18 @@
 # ass-03
 
-Water Level Monitoring subsystem (ESP32)
+Water Level Monitoring subsystem (ESP32):
     - legge il livello con un sonar continuamente e invia con una frequenza F al PC via mqtt
     - la frequenza è decisa dal servizio sul pc
     -  Quando il sistema funziona correttamnte led verde acceso, altrimenti le rosso
-River Monitoring Service subsystem  (PC)
+
+River Monitoring Service subsystem  (PC):
     - se acqua < WL1 => ALARM-TOO-LOW, frequenza F1, apertura 0%
     - se acqua in range [WL1, WL2] allora => NORMAL, frequenza F1, apertura 25%
     - se acqua ]WL2, WL3] => PRE-ALARM-TOO-HIGH, F2, apertura 25%
     - se acqua ]WL2, WL3] => ALARM-TOO-HIGH, F2, apertura 50%
     - se acqua > WL4 => ALARM-TOO-HIGH-CRITIC, apertura 100% 
     
-Water Channel Controller subsystem (Arduino)
+Water Channel Controller subsystem (Arduino):
     - Controlla la valvola (da 0 a 180 gradi)
     - L'apertura dipende dal sistema di comando
     - Ha un bottone che permette il controllo manuale (se premuto si passa in manuale, se ripremuto si torna in remoto)
@@ -19,3 +20,10 @@ Water Channel Controller subsystem (Arduino)
     - Ha un display che mostra la modalità di controllo (auto/manuale) e la percentuale di apertura
 
 River Monitoring Dashboard subsystem (web app on the PC)
+
+
+Interazioni:
+    MQTT:
+        - Al subscribe dell'esp 32 gli viene inviata una frquenze F da PC
+        - A ogni F l'esp 32 invia l'informazione
+        - Eventualmente il PC invia una nuova F
