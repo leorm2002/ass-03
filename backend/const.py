@@ -1,19 +1,19 @@
-# Soglie acqua (TODO definire unita di misura)
-WL1 = 10
-WL2 = 15
-WL3 = 20
-WL4 = 25
+# Soglie acqua
+WL1 = 5
+WL2 = 10
+WL3 = 15
+WL4 = 20
 
 # Percentuali di apertura
-A0 = 0.0
-A1 = 0.25
-A2 = 0.50
-A3 = 1.0
+A0 = 0
+A1 = 25
+A2 = 50
+A3 = 100
 
-# Frequenze di campionamento (Herz)
-DEFAULT_FREQ = 1
-F1 = 1
-F2 = 2
+# Frequenze di campionamento n. volte al minuto
+DEFAULT_FREQ = 60
+F1 = 30
+F2 = 60
 
 # MQTT Broker
 MQTT_BROKER = "broker.hivemq.com"

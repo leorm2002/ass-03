@@ -5,7 +5,7 @@ from const import N
 
 class LevelHistory:
     level = {}
-    def addLevel(self, level):
+    def addLevel(self, level : float):
         # add with timestamp
         self.level[datetime.now()] = level
     def getLevels(self):

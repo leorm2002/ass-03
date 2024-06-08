@@ -14,8 +14,8 @@ def format_level(level):
 async def send_level(level: int):
     global client
     level = format_level(level)
-    print("sending ",level)
-    client.publish(topic,level)
+    #print("sending ",level)
+    #client.publish(topic,level)
 
 def on_message(client, userdata, message):
     msg = str(message.payload.decode("utf-8"))

@@ -1,0 +1,37 @@
+you have to build a system based on arduino to control a servo motor.
+The system will have:
+a button (the presson of the button must be attatched to an hardware interrupt)
+a potentiometer
+a servo motor as output
+a lcd
+it will also take input from serial line from a computer (values from 0 to 100)
+
+The system will have two state manual and automatic, the state are switched each time the button is pressed. The default state is automatic
+When in automatic the arduino will recieve a value via serial (the recievement of the message must be handlet with an interrupt) ranging from 0 to 100. it will then map it to a value from 0 to 180 and set the servo to the specified degree
+
+If the system is in maual mode it will check the potentiometer and move the servo from 0 to 180 degrees base on the position of the potentiometer.
+
+You can choose which pin to use.
+The progam must be un multiple files, use c++.
+Make a wrap header and class for each component (servo, potentiometer, button, lcd and serial i/o)
+and manage the system with as basic finite state machine (with the two given state)
+
+In any given time the display must always show:
+the mode (manual automatic) the degree of opening of the servo.
+Remember to use an hardware interrupt for the pin
+
+the directory structure must be like:
+- src
+  - main.ino
+  - ServoController.h
+  - ServoController.cpp
+  - Potentiometer.h
+  - Potentiometer.cpp
+  - Button.h
+  - Button.cpp
+  - Display.h
+  - Display.cpp
+  - SerialIO.h
+  - SerialIO.cpp
+  - FSM.h
+  - FSM.cpp

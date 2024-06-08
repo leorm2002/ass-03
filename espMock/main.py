@@ -43,6 +43,10 @@ async def send_level(level: int):
     client.publish(topic,level)
 
 @app.on_event("startup")
+async def startup_event():
+    global client
+    global controller
+    client = paho.Client
 
 @app.get("/getmessages")
 async def get_messages():
